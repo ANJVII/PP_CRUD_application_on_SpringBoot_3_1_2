@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+</head>
+
+<body>
+<h2>All Employees (Все работники)</h2>
+<br>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th colspan="2">Operations</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:utext="${user.getName()}"></td>
+        <td th:utext="${user.getLastName()}"></td>
+        <td th:utext="${user.getDepartment()}"></td>
+        <td th:utext="${user.getSalary()}"></td>
+        <td>
+            <form style="align-items: center" th:method="GET" th:action="@{/updateInfo-{id}(id=${user.getId()})}">
+                <input type="submit" value="Update"/>
+            </form>
+        </td>
+        <td>
+            <form style="align-items: center" th:method="DELETE" th:action="@{/deleteUser?id={id}(id=${user.getId()})}">
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    </th:each>
+</table>
+<br>
+<form method="get" th:action="@{/addNewUser}">
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

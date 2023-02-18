@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+</head>
+
+<body>
+<h2>Employee Info (Информация о работнике)</h2>
+<br>
+<form th:action="@{/saveUser}" th:object="${user}" accept-charset="UTF-8" th:method="post">
+    <label>Name:</label>
+    <input th:field="*{name}" type="text" id="name" style=position:absolute;left:8%;/>
+    <br><br>
+    <label>Surname:</label>
+    <input th:field="*{lastName}" type="text" id="surname" style=position:absolute;left:8%;/>
+    <br><br>
+    <label>Department:</label>
+    <input th:field="*{department}" type="text" id="department" style=position:absolute;left:8%;/>
+    <br><br>
+    <label>Salary:</label>
+    <input th:field="*{salary}" type="text" id="salary" style=position:absolute;left:8%;/>
+    <br><br>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
