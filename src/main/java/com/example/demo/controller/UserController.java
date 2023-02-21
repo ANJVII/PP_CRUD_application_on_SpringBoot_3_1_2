@@ -45,13 +45,13 @@ public class UserController {
     }
 
 
-    @PostMapping(value = "/updateUser-{id}")
+    @PatchMapping(value = "/updateUser-{id}")
     public String updateUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/users";
     }
 
-    @PostMapping(value = "/deleteUser")
+    @DeleteMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam(value = "id") Long id) {
         userService.deleteUser(id);
         return "redirect:/users";

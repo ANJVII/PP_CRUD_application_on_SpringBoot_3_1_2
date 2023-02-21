@@ -9,7 +9,7 @@
 <body>
 <h2>Employee Info (Информация о работнике)</h2>
 <br>
-<form th:action="@{/updateUser-{id}(id=${user.getId()})}" th:object="${user}" th:method="post" accept-charset="UTF-8">
+<form th:action="@{/updateUser-{id}(id=${user.getId()})}" th:object="${user}" th:method="patch" accept-charset="UTF-8">
     <hidden th:field="*{id}"/>
     <label>Name:</label>
     <input th:field="*{name}" type="text" id="name" style=position:absolute;left:8%; th:charset="UTF-8"/>
@@ -23,7 +23,7 @@
     <label>Salary:</label>
     <input th:field="*{salary}" type="text" id="salary" style=position:absolute;left:8%; th:charset="UTF-8"/>
     <br><br>
-    <input type="submit" value="OK">
 </form>
+<button onclick="document.location='/users'">Ok</button>
 </body>
 </html>
